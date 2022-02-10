@@ -35,7 +35,9 @@ async function updateStudent(req, res, next) {
     const student = await Student.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-    res.status(200).json({ student });
+    res.status(200).json({
+      success: "Student was updated successfully!",
+    });
   } catch (err) {
     res.status(500).json({
       error: "Internal server error!",

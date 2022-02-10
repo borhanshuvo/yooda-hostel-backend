@@ -35,7 +35,9 @@ async function updateFoodItem(req, res, next) {
     const foodItem = await FoodItem.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-    res.status(200).json({ foodItem });
+    res.status(200).json({
+      success: "Food Item was updated successfully!",
+    });
   } catch (err) {
     res.status(500).json({
       error: "Internal server error!",
