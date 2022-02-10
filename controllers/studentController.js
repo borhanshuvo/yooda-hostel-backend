@@ -54,9 +54,27 @@ async function paginationData(req, res, next) {
   }
 }
 
+// delete student data
+async function deleteStudent(req, res, next) {
+  try {
+    const id = req.params.id;
+    const student = await Student.findByIdAndDelete({
+      _id: id,
+    });
+    res.status(200).json({
+      success: "Student was deleted successfully!",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Internal Server Error!",
+    });
+  }
+}
+
 module.exports = {
   getStudent,
   addStudent,
   updateStudent,
   paginationData,
+  deleteStudent,
 };

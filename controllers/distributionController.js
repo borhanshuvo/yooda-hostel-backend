@@ -66,21 +66,6 @@ async function searchDistribution(req, res, next) {
   }
 }
 
-// update food item data
-// async function updateFoodItem(req, res, next) {
-//   try {
-//     const id = req.params.id;
-//     const foodItem = await FoodItem.findByIdAndUpdate(id, req.body, {
-//       new: true,
-//     });
-//     res.status(200).json({ foodItem });
-//   } catch (err) {
-//     res.status(500).json({
-//       error: "Internal server error!",
-//     });
-//   }
-// }
-
 module.exports = {
   getDistribution,
   addDistribution,

@@ -9,6 +9,7 @@ const {
   addStudent,
   updateStudent,
   paginationData,
+  deleteStudent,
 } = require("../controllers/studentController");
 const { getPaginatedResults } = require("../middlewares/pagination");
 
@@ -19,9 +20,16 @@ router.get("/getStudent", getStudent);
 router.post("/addStudent", addStudent);
 
 // pagination student data
-router.post("/paginationStudentData",getPaginatedResults(Student), paginationData);
+router.post(
+  "/paginationStudentData",
+  getPaginatedResults(Student),
+  paginationData
+);
 
 // update student data
 router.put("/updateStudent/:id", updateStudent);
+
+// delete student data
+router.delete("/deleteStudent/:id", deleteStudent);
 
 module.exports = router;

@@ -54,9 +54,27 @@ async function foodItemPaginationData(req, res, next) {
   }
 }
 
+// delete food item data
+async function deleteFoodItem(req, res, next) {
+  try {
+    const id = req.params.id;
+    const foodItem = await FoodItem.findByIdAndDelete({
+      _id: id,
+    });
+    res.status(200).json({
+      success: "Food Item was deleted successfully!",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Internal Server Error!",
+    });
+  }
+}
+
 module.exports = {
   getFoodItem,
   addFoodItem,
   updateFoodItem,
   foodItemPaginationData,
+  deleteFoodItem,
 };

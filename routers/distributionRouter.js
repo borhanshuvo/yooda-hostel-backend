@@ -9,10 +9,10 @@ const {
 // internal imports
 const router = express.Router();
 
-// get food item data
+// get distribution data
 router.get("/getDistribution", getDistribution);
 
-// add food item
+// add distribution data
 router.post("/addDistribution", addDistribution);
 
 // search distribution data
